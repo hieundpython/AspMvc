@@ -1,0 +1,48 @@
+﻿@using MovieMVC.Web.Models.Common.Modals
+@*@using MovieMVC.Web.Models.Users
+@model UserListViewModel*@
+@{
+    Layout = null;
+}
+<div class="modal fade" id="EmployeeCreateModal" tabindex="-1" role="dialog" aria-labelledby="EmployeeCreateModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            @await Html.PartialAsync("~/Views/Shared/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel(L("CreateNewEmployee")))
+            <form name="employeeCreateForm" role="form" class="form-horizontal">
+                <div class="modal-body">
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("EmployeeName")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Name" required minlength="2" />
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("Gender")</label>
+                        <div class="col-md-9">
+                            <input type="number" class="form-control" name="Gender" required />
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("BirthDate")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="datepicker" name="BirthDate" required autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("EmailAddress")</label>
+                        <div class="col-md-9">
+                            <input type="email" class="form-control" id="datepicker" name="EmailAddress" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label class="col-md-3 col-form-label">@L("Jobs")</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="Jobs" />
+                        </div>
+                    </div>
+                </div>
+                @await Html.PartialAsync("~/Views/Shared/Modals/_ModalFooterWithSaveAndCancel.cshtml")
+            </form>
+        </div>
+    </div>
+</div>
